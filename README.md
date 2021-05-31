@@ -6,7 +6,7 @@ Requirments:
 - python 3.5+
 - astropy
 
-Usage: ``check_infoot.py [--option] [entry]''
+Usage: ``check_infoot.py [--option] [entry]
 
          Calculates if the coordinates provided are within the S-PLUS footprint.
 
