@@ -6,7 +6,7 @@ Requirments:
 - python 3.5+
 - astropy
 
-Usage: ``check_infoot.py [--option] [entry]
+Usage: check_infoot.py [--option] [entry]
 
          Calculates if the coordinates provided are within the S-PLUS footprint.
 
@@ -22,5 +22,5 @@ Usage: ``check_infoot.py [--option] [entry]
                                 RA,DEC. Format can be hour or deg, but must
                                 be specified using --deg or --hour. Default is hour.
 
-        --deg | --hour          tells the format of the input RA coordinates.
+        --cformat, -d           ['deg' | 'hour'] tells the format of the input RA coordinates.
                                 Default is hour. Dec is always assumed as deg.``

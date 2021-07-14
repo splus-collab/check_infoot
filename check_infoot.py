@@ -31,7 +31,7 @@ def arg_parser():
                             RA,DEC. Format can be hour or deg, but must
                             be specified using --deg or --hour. Default is hour.
 
-    --deg | --hour          tells the format of the input RA coordinates.
+    --cformat, -d           tells the format of the input RA coordinates.
                             Default is hour. Dec is always assumed as deg.
 
     """)
@@ -42,9 +42,10 @@ def arg_parser():
     parser.add_option('-f', '--coords_file',
                       type='string', action='store',
                       help="""csv file containing the objects coordinates""")
-    parser.add_option('-d', '--coords_format',
+    parser.add_option('-d', '--cformat',
                       type='string', action='store',
-                      help="""format of the coordinates value ['hour' or 'deg'""")
+                      help="""['hour' | 'deg'] format of the RA coordinates value.
+                      Default is hour. Dec is always assumed as deg.""")
 
     (opts, args) = parser.parse_args()
     return opts, args
