@@ -119,7 +119,7 @@ if __name__ == '__main__':
     opts, args = arg_parser()
     coords = opts.coordinates
     coords_file = opts.coords_file
-    forma = opts.coords_format
+    forma = opts.cformat
 
     if (forma == 'deg'):
         formra = u.deg
