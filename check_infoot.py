@@ -103,8 +103,8 @@ def check_infoot(coords=None, coords_file=None, formra=u.hour):
     return
 
 if __name__ == '__main__':
-    __version__ = '0.3'
-    moddate = '2021-05-31'
+    __version__ = '0.3.1'
+    moddate = '2022-05-10'
 
     initext = """
         ===================================================================
