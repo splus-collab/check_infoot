@@ -1,0 +1,12 @@
+#AJS
+filter Filter0 {
+${STATUS}==0 {draw red rectangle(5040,5040,0)}
+${STATUS}==1 {draw green rectangle(5040,5040,0)}
+${STATUS}==2 {draw yellow rectangle(5040,5040,0)}
+${STATUS}==3 {draw magenta rectangle(5040,5040,0)}
+${STATUS}==4 {draw rgb(196,224,0) rectangle(5040,5040,0)}
+${STATUS}==5 {draw rgb(255,102,102) rectangle(5040,5040,0)}
+${STATUS}==6 {draw rgb(0,128,48) rectangle(5040,5040,0)}
+${STATUS}==-1 {draw blue rectangle(5040,5040,0)}
+${STATUS}==-2 {draw rgb(0,140,224) rectangle(5040,5040,0)}
+}
