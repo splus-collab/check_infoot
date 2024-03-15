@@ -1,6 +1,8 @@
-# Herpich F.R. -- 2019-12-13
-# herpich@usp.br
-# last time modified: 2021-05-31
+"""
+Herpich F.R. -- 2019-12-13
+herpich@usp.br
+last time modified: 2023-06-16
+"""
 
 from astropy import units as u
 from astropy.coordinates import SkyCoord
@@ -61,7 +63,8 @@ def check_infoot(coords=None, coords_file=None, formra=u.hour):
     c1 = SkyCoord(ra=t['RA'], dec=t['DEC'], unit=(u.hour, u.deg), frame='icrs')
 
     if coords is not None:
-        inc = SkyCoord(ra=coords.split(',')[0], dec=coords.split(',')[1], unit=(formra, u.deg), frame='icrs')
+        inc = SkyCoord(ra=coords.split(',')[0], dec=coords.split(',')[
+                       1], unit=(formra, u.deg), frame='icrs')
 
         sep = c1.separation(inc)
         mask = sep.value < 1.0
@@ -76,14 +79,16 @@ def check_infoot(coords=None, coords_file=None, formra=u.hour):
             print('TILE STATUS SEPARATION')
             print('----------------------')
             for i in range(mask.sum()):
-                print(t['NAME'][mask][i], t['STATUS'][mask][i], sep.value[mask][i])
-            print('If STATUS = {1, 2, 4, 5, 6}, the tile where the coordinates are located was already observed')
+                print(t['NAME'][mask][i], t['STATUS']
+                      [mask][i], sep.value[mask][i])
+            print(
+                'If STATUS = {1, 2, 4, 5, 6}, the tile where the coordinates are located was already observed')
     elif coords_file is not None:
         t2 = ascii.read(coords_file)
         c2 = SkyCoord(ra=t2['RA'], dec=t2['DEC'],
                       unit=(formra, u.deg), frame='icrs')
         idx, d2d, d3d = c2.match_to_catalog_sky(c1)
-        max_sep = 1.0 * u.deg
+        max_sep = 1.0 * u.deg  # pyright: ignore
         sep_constraint = d2d < max_sep
         status = t['STATUS'][idx]
         status[~sep_constraint] = -10
@@ -95,12 +100,15 @@ def check_infoot(coords=None, coords_file=None, formra=u.hour):
         print('saving file', outname)
         t2.write(outname, overwrite=True)
         print('Your results are within the table', outname)
-        print('If STATUS = {1, 2, 4, 5, 6}, the tile where the coordinates are located was already observed')
+        print(
+            'If STATUS = {1, 2, 4, 5, 6}, the tile where the coordinates are located was already observed')
 
     else:
-        raise IOError('wrong input coordinates format. Check -h or --help for help')
+        raise IOError(
+            'wrong input coordinates format. Check -h or --help for help')
 
     return
+
 
 if __name__ == '__main__':
     __version__ = '0.3.1'
@@ -126,6 +134,7 @@ if __name__ == '__main__':
     elif (forma == 'hour') or (forma is None):
         formra = u.hour
     else:
-        raise IOError('wrong input coordinates format. Check -h or --help for help')
+        raise IOError(
+            'wrong input coordinates format. Check -h or --help for help')
 
     check_infoot(coords=coords, coords_file=coords_file, formra=formra)
